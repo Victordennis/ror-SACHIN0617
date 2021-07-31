@@ -28,7 +28,7 @@ class Item
   def self.validate_item_presence(name, price)
     items = all
     if items[name]
-      puts "Item #{name} is already present."
+      items[name][:price] = price
       return
     end
   end
@@ -138,7 +138,7 @@ class Purchase
     input = gets
     puts "\n"
 
-    
+
     items = input.split(' ').join().split(',')
     bill_details = InvoiceDetails.new(items).execute
 
